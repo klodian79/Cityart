@@ -1,0 +1,1169 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2908
+\cocoatextscaling1\cocoaplatform1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 HelveticaNeue-Bold;\f2\fnil\fcharset0 HelveticaNeue-BoldItalic;
+\f3\fmodern\fcharset0 Courier-Bold;\f4\fnil\fcharset0 HelveticaNeue-Medium;\f5\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs52 \cf0 \strokec2 Ja kodi i plot\'eb HTML \'97 prek butonin 
+\f2\i \strokec2 Copy
+\f1\i0 \strokec2  n\'eb cepin e djatht\'eb sip\'ebr t\'eb kutis\'eb m\'eb posht\'eb (mos kopjo asgj\'eb tjet\'ebr pas tij), hap 
+\f2\i \strokec2 Shortcuts
+\f1\i0 \strokec2  dhe shtyp direkt 
+\f3\fs48 \strokec2 \uc0\u9654 
+\f1\fs52 \strokec2  (Play).
+\f0\b0\fs32 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs40 \cf0 \strokec2 html\
+\pard\pardeftab720\partightenfactor0
+
+\f5\fs48 \cf0 \strokec2 <!DOCTYPE html>\
+<html lang="sq">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\
+<meta name="apple-mobile-web-app-capable" content="yes">\
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">\
+<meta name="apple-mobile-web-app-title" content="City Art">\
+<title>City Art Bar & Restaurant</title>\
+<style>\
+  :root \{\
+    --bg: #0f172a;\
+    --card: #1e293b;\
+    --card-hover: #273549;\
+    --text: #f8fafc;\
+    --muted: #94a3b8;\
+    --accent: #38bdf8;\
+    --green: #22c55e;\
+    --yellow: #eab308;\
+    --red: #ef4444;\
+    --border: #334155;\
+  \}\
+  * \{ box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; -webkit-tap-highlight-color: transparent; \}\
+  body \{ background: var(--bg); color: var(--text); line-height: 1.45; padding-bottom: 60px; \}\
+  header \{ background: #020617; padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; \}\
+  header h1 \{ font-size: 1.05rem; font-weight: 700; color: var(--accent); \}\
+  header span \{ font-size: 0.75rem; color: var(--muted); display: block; \}\
+  nav \{ display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px; background: #0b1120; border-bottom: 1px solid var(--border); -webkit-overflow-scrolling: touch; \}\
+  nav::-webkit-scrollbar \{ display: none; \}\
+  nav button \{ background: var(--card); color: var(--muted); border: 1px solid var(--border); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 0.82rem; white-space: nowrap; \}\
+  nav button.active \{ background: var(--accent); color: #020617; border-color: var(--accent); \}\
+  .container \{ max-width: 1200px; margin: 16px auto; padding: 0
+\fs28 \strokec2  
+\fs48 \strokec2 14px; \}\
+  .section \{ display: none; \}\
+  .section.active \{ display: block; \}\
+  .grid-kpi \{ display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 18px; \}\
+  .kpi-card \{ background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; \}\
+  .kpi-card .label \{ font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; \}\
+  .kpi-card .val \{ font-size: 1.25rem; font-weight: 700; margin: 4px 0; \}\
+  .kpi-card .sub \{ font-size: 0.75rem; color: var(--muted); \}\
+  .badge \{ display: inline-block; padding: 3px 7px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; \}\
+  .b-red \{ background: rgba(239,68,68,0.2); color: #fca5a5; \}\
+  .b-yellow \{ background: rgba(234,179,8,0.2); color: #fde047; \}\
+  .b-green \{ background: rgba(34,197,94,0.2); color: #86efac; \}\
+  .b-blue \{ background: rgba(56,189,248,0.2); color: #7dd3fc; \}\
+  .controls \{ display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; \}\
+  input[type="text"], input[type="number"], select \{ background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 9px 10px; border-radius: 8px; font-size: 0.88rem; \}\
+  input[type="text"] \{ flex: 1; min-width: 160px; \}\
+  input[type="number"] \{ width: 78px; text-align: right; font-weight: 600; \}\
+  .btn \{ background: var(--accent); color: #020617; border: none; padding: 9px 14px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.82rem; \}\
+  .btn-outline \{ background: transparent; border: 1px solid var(--border); color: var(--text); padding: 6px 10px; font-size: 0.75rem; border-radius: 8px; \}\
+  .table-wrap \{ overflow-x: auto; background: var(--card); border: 1px solid var(--border); border-radius: 12px; -webkit-overflow-scrolling: touch; \}\
+  table \{ width: 100%; border-collapse: collapse; font-size: 0.82rem; \}\
+  th, td \{ padding: 10px 10px; text-align: left; border-bottom: 1px solid var(--border); \}\
+  th \{ background: #162032; color: var(--muted); font-weight: 600; white-space: nowrap; \}\
+  .num \{ text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; \}\
+  .sim-box \{ background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 16px; \}\
+</style>\
+</head>\
+<body>\
+\
+<header>\
+  <div>\
+    <h1>CITY ART BAR & RESTAURANT</h1>\
+    <span>Paketa Master \'95 01\'9625 N\'ebntor 2026</span>\
+  </div>\
+  <button class="btn-outline" onclick="resetAllData()">Rikthe</button>\
+</header>\
+\
+<nav>\
+  <button class="active" onclick="switchTab('dash', this)">1. P\'ebrmbledhja</button>\
+  <button onclick="switchTab('kuzhina', this)">2. Kuzhina (38)</button>\
+  <button onclick="switchTab('sushi', this)">3. Sushi (19)</button>\
+  <button onclick="switchTab('furnitoret', this)">4. Furnitor\'ebt</button>\
+  <button onclick="switchTab('inventari', this)">5. Inventari</button>\
+</nav>\
+\
+<div class="container">\
+\
+  <div id="dash" class="section active">\
+    <div class="grid-kpi">\
+      <div class="kpi-card">\
+        <div class="label">Food Cost Mesatar</div>\
+        <div class="val" id="kpi-avg-fc" style="color:var(--green)">26.8%</div>\
+        <div class="sub"><span id="kpi-high-fc" style="color:var(--red); font-weight:600;">5 pjata >35%</span></div>\
+      </div>\
+      <div class="kpi-card">\
+        <div class="label">Energjia & Gazi</div>\
+        <div class="val" style="color:var(--yellow)">220,369 L</div>\
+        <div class="sub">OSHEE 155k + Gaz 65k</div>\
+      </div>\
+      <div class="kpi-card">\
+        <div class="label">Investime Kapital</div>\
+        <div class="val">138,636 L</div>\
+        <div class="sub">EFLO + Saluga</div>\
+      </div>\
+      <div class="kpi-card">\
+        <div class="label">Break-Even Sushi</div>\
+        <div class="val" style="color:var(--accent)">~190 Rolle</div>\
+        <div class="sub">~6\'967 rolle/dit\'eb (80k pag\'eb)</div>\
+      </div>\
+    </div>\
+\
+    <div class="table-wrap">\
+      <table>\
+        <thead>\
+          <tr>\
+            <th>Treguesi</th>\
+            <th>Vlera / Statusi</th>\
+            <th>Detajet & Veprimi</th>\
+          </tr>\
+        </thead>\
+        <tbody id="summary-body"></tbody>\
+      </table>\
+    </div>\
+  </div>\
+\
+  <div id="kuzhina" class="section">\
+    <div class="controls">\
+      <input type="text" id="search-kuzhina" placeholder="K\'ebrko pjat\'ebn..." onkeyup="renderKuzhina()">\
+      <select id="filter-kuzhina" onchange="renderKuzhina()">\
+        <option value="all">T\'eb gjitha pjatat</option>\
+        <option value="high">FC > 35% (Kritike)</option>\
+        <option value="border">FC 30% - 35%</option>\
+        <option value="good">FC < 30% (Mir\'eb)</option>\
+      </select>\
+      <button class="btn" onclick="applyRecommendedPrices()">Rregullo \'c7mimet >35%</button>\
+    </div>\
+    <div class="table-wrap">\
+      <table>\
+        <thead>\
+          <tr>\
+            <th>Pjata</th>\
+            <th class="num">Menu (L)</th>\
+            <th class="num">Kosto</th>\
+            <th class="num">FC %</th>\
+            <th class="num">Fitimi</th>\
+            <th class="num">Rek. 30%</th>\
+            <th>Sh\'ebnime</th>\
+          </tr>\
+        </thead>\
+        <tbody id="kuzhina-body"></tbody>\
+      </table>\
+    </div>\
+  </div>\
+\
+  <div id="sushi" class="section">\
+    <div class="sim-box">\
+      <div style="font-weight:700; color:var(--accent); margin-bottom:8px;">Simulatori Sushi (80,000 L + 100 L/roll)</div>\
+      <div style="margin-bottom:12px;">\
+        <label>Rolle / muaj: <strong id="sim-rolls-val" style="color:var(--accent); font-size:1.1rem;">250</strong></label><br>\
+        <input type="range" id="sim-rolls" min="50" max="600" value="250" oninput="updateSushiSim()" style="width:100%; margin-top:6px;">\
+      </div>\
+      <div class="grid-kpi" style="margin-bottom:0;">\
+        <div class="kpi-card" style="background:#0f172a; padding:10px;">\
+          <div class="label">Xhiro Mujore</div>\
+          <div class="val" id="sim-rev" style="font-size:1.05rem;">0 L</div>\
+        </div>\
+        <div class="kpi-card" style="background:#0f172a; padding:10px;">\
+          <div class="label">Fitimi Neto (pas pag\'ebs)</div>\
+          <div class="val" id="sim-net" style="font-size:1.05rem;">0 L</div>\
+        </div>\
+      </div>\
+    </div>\
+\
+    <div class="table-wrap">\
+      <table>\
+        <thead>\
+          <tr>\
+            <th>Artikulli Sushi</th>\
+            <th class="num">Menu</th>\
+            <th class="num">Malli+Bonus</th>\
+            <th class="num">% Kosto</th>\
+            <th class="num">Marzhi</th>\
+            <th>P\'ebrb\'ebr\'ebsit</th>\
+          </tr>\
+        </thead>\
+        <tbody id="sushi-body"></tbody>\
+      </table>\
+    </div>\
+  </div>\
+\
+  <div id="furnitoret" class="section">\
+    <div class="controls">\
+      <input type="text" id="search-supp" placeholder="K\'ebrko produkt / furnitor..." onkeyup="renderSuppliers()">\
+      <select id="filter-sector" onchange="renderSuppliers()">\
+        <option value="all">T\'eb gjith\'eb</option>\
+        <option value="KUZHIN\'cb">KUZHIN\'cb</option>\
+        <option value="SUSHI">SUSHI</option>\
+        <option value="BARI">BARI</option>\
+      </select>\
+    </div>\
+    <div class="table-wrap">\
+      <table>\
+        <thead>\
+          <tr>\
+            <th>Produkti</th>\
+            <th>Furnitori</th>\
+            <th class="num">\'c7mimi (TVSH)</th>\
+            <th class="num">Nj\'ebsi Baz\'eb</th>\
+            <th>Sh\'ebnime</th>\
+          </tr>\
+        </thead>\
+        <tbody id="supp-body"></tbody>\
+      </table>\
+    </div>\
+  </div>\
+\
+  <div id="inventari" class="section">\
+    <div class="controls" style="justify-content:space-between;">\
+      <div>\
+        <span style="font-size:0.82rem; color:var(--muted);">Humbja Totale:</span><br>\
+        <span id="total-loss" style="font-size:1.2rem; font-weight:700; color:var(--red);">0 ALL</span>\
+      </div>\
+      <div style="display:flex; gap:8px;">\
+        <button class="btn-outline" onclick="clearInventory()">Pastro</button>\
+        <button class="btn" onclick="exportInventoryCSV()">Eksporto CSV</button>\
+      </div>\
+    </div>\
+    <div class="table-wrap">\
+      <table>\
+        <thead>\
+          <tr>\
+            <th>Produkti</th>\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \strokec2 Usa il codice con cautela.\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf0 \strokec2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 Stok+Bl.
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 Fizike
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 Kas\'eb
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 Dif.
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 Humbja (L)
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs52 \cf0 \strokec2 const DEFAULT_SUMMARY = [
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ cat: "1. KUZHINA (41 Pjata)", val: "22%\'9628% FC", st: "KUJDES TE GRAMA", badge: "b-yellow", det: "4\'965 pjata me FC >35%. Vendosni peshore; rritni \'e7mimet te Vez\'eb Posche, Fileto Ros\'eb, Briosh, Brinj\'eb Qingji." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ cat: "2. SUSHI (19 Artikuj)", val: "18%\'9624% Kosto", st: "FITIMPRUR\'cbS", badge: "b-green", det: "Pragu Break-even p\'ebr pag\'ebn 80,000 L + 100 L/roll \'ebsht\'eb ~190 rolle/muaj (~6\'967 rolle/dit\'eb)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ cat: "3. PAJISJE (EFLO)", val: "121,851 ALL", st: "KAPITAL", badge: "b-blue", det: "Fritoz\'eb, tenxhere, tigane, thika (Fat. 1246). Amortizohet, nuk hyn te Food Cost ditor." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ cat: "4. MIR\'cbMB. (SALUGA)", val: "16,785 ALL", st: "INVESTIM", badge: "b-blue", det: "Pasqyr\'eb banjo (9,765 L) + Filtra uji & tuba (7,020 L)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ cat: "5. ENERGJIA & GAZI", val: "220,369 ALL", st: "FIKS", badge: "b-red", det: "OSHEE Tetor (155,119 L) + Gaz deri m\'eb 24 N\'ebntor (65,250 L). Kontrolloni fritozat jasht\'eb pikut." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ cat: "6. KURSIME FURNITOR\'cb", val: "500\'96620 L/sh", st: "OPORTUNITET", badge: "b-green", det: "Beluga te T.E Distr (3,700 L vs 4,200 L) | Disaronno te Eurolab (1,580 L vs 2,200 L)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ cat: "7. INVENTARI I DIEL\'cbS", val: "27 Produkte", st: "GATI", badge: "b-green", det: "Plot\'ebsohet \'e7do t\'eb diel n\'eb mbr\'ebmje p\'ebr t\'eb kapur firon direkt nga telefoni." \}
+\fs32 \strokec2 \
+
+\fs52 \strokec2 ];\
+const DEFAULT_KUZHINA = [
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 33, name: "Vez\'eb Posche (Sourdough, Avokado)", price: 450, cost: 245.25, rec: 820, note: "Vaji 120ml->10ml; duhet 650\'96700 L." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 2, name: "Fileto Ros\'eb Tagliata (150g)", price: 800, cost: 392.39, rec: 1310, note: "Gjoksi i ros\'ebs ishte 0 L! Duhet ~1,200 L." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 32, name: "Briosh City Art (Special)", price: 350, cost: 152.92, rec: 510, note: "Kosto brioshi 72 L + maskarpone; duhet 450\'96500 L." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 4, name: "Brinj\'eb Qingji (350g)", price: 1900, cost: 763.68, rec: 2550, note: "Rrisni n\'eb 2,200 L ose ulni 280g." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 41, name: "Istanbul Breakfast (2 Persona)", price: 1600, cost: 565.00, rec: 1880, note: "\'c7mimi p\'ebr 2 persona duhet 1,600\'961,800 L." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 17, name: "Signature (Brie & Filadelfia)", price: 520, cost: 179.26, rec: 600, note: "Filadelfia 1,333 L/kg." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 30, name: "Vez\'eb Scrambled", price: 450, cost: 155.13, rec: 520, note: "Crema tartufata 1,731 L/kg." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 18, name: "Shije Shqiptare (Djath\'eb Bardh\'eb)", price: 420, cost: 144.34, rec: 480, note: "N\'eb kufi (34.4%)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 12, name: "Speca Padron", price: 450, cost: 153.01, rec: 510, note: "Spec padron 950 L/kg." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 8, name: "Agnolotti Ossobuco", price: 750, cost: 250.06, rec: 830, note: "P\'ebrdit\'ebsuar Filadelfia." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 3, name: "Brinj\'eb Vi\'e7i (300g)", price: 1100, cost: 365.44, rec: 1220, note: "Rekomandohet 1,200 L." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 24, name: "Rosto Vi\'e7i", price: 650, cost: 212.88, rec: 710, note: "Rosto 1,400 L/kg." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 10, name: "Sallat\'eb City Art", price: 650, cost: 208.20, rec: 690, note: "Avokado 625 L/kg." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 36, name: "Ravioli Rikota Spinaq", price: 600, cost: 190.93, rec: 640, note: "Mir\'eb (31.8%)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 23, name: "K\'ebrpudha Krokante", price: 450, cost: 139.08, rec: 460, note: "Majonez\'eb Heinz 360 L/kg." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 1, name: "Sup\'eb me Sal\'e7i\'e7e", price: 320, cost: 96.10, rec: 320, note: "Mir\'eb (30.0%)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 35, name: "Posche Chickpeas (Qiqra)", price: 500, cost: 149.84, rec: 500, note: "Mir\'eb (30.0%)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 6, name: "Chicken Pithivier", price: 750, cost: 220.50, rec: 740, note: "Rukola 550 L/kg." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 38, name: "Spaghetti Carbonara", price: 600, cost: 174.90, rec: 580, note: "U shtua 120g spageti (54 L)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 13, name: "Edamame", price: 450, cost: 128.84, rec: 430, note: "Vaj tartufi 2,960 L/L." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 29, name: "Kroketa Gici", price: 380, cost: 101.40, rec: 340, note: "Fitim i mir\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 7, name: "Paccheri Amatriciana", price: 650, cost: 172.90, rec: 580, note: "Pecorino 2,600 L/kg." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 5, name: "Porchetta", price: 650, cost: 172.47, rec: 570, note: "Fitim i mir\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 39, name: "French Toast", price: 400, cost: 105.62, rec: 350, note: "U shtuan Banane, Nutella & Pan Briosh." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 19, name: "Pate Pule", price: 350, cost: 89.96, rec: 300, note: "Fitim i mir\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 11, name: "Sallat\'eb me Lulelak\'ebr", price: 420, cost: 105.91, rec: 350, note: "Fitim i mir\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 14, name: "Bruschetta", price: 330, cost: 80.69, rec: 270, note: "Fitim i mir\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 25, name: "Sal\'e7i\'e7e", price: 550, cost: 130.43, rec: 430, note: "Fitim i mir\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 21, name: "Bruschetta (Dublikim)", price: 330, cost: 77.63, rec: 260, note: "E dubluar me #14." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 9, name: "Risotto Cream Peanut", price: 600, cost: 139.32, rec: 460, note: "U shtua 120g oriz (23.4 L)." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 22, name: "Spring Rolls", price: 450, cost: 88.97, rec: 300, note: "Fitim i lart\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 28, name: "Patate Sht\'ebpie", price: 350, cost: 67.90, rec: 230, note: "Fitim i lart\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 34, name: "Petulla t\'eb Gjyshes", price: 400, cost: 76.42, rec: 250, note: "Fitim i lart\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 37, name: "Gnocchi Sorrentina", price: 650, cost: 121.84, rec: 410, note: "Fitim i lart\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 40, name: "Portokalopita", price: 350, cost: 65.00, rec: 220, note: "Vendosni \'e7mim 300\'96350 L." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 26, name: "Patate e \'cbmb\'ebl", price: 350, cost: 54.35, rec: 180, note: "Fitim i lart\'eb." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 20, name: "Takos (Tacos)", price: 750, cost: 112.55, rec: 380, note: "Vaji 50ml->5ml." \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 15, name: "Pat\'ebllxhan\'eb Tempura", price: 350, cost: 43.00, rec: 140, note: "YLL I MENUS\'cb (12.3% FC)!" \}
+\fs32 \strokec2 \
+
+\fs52 \strokec2 ];\
+const DEFAULT_SUSHI = [
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 1, name: "Philadelphia Roll (8 pcs)", price: 1100, cost: 113.5, bonus: 100, ing: "Salmon 20g, Avokado 5g, Filadelfia 5g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 2, name: "Salmon Avocado Roll (8 pcs)", price: 1050, cost: 107.0, bonus: 100, ing: "Salmon 20g, Avokado 5g, Susam 2g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 3, name: "Cali Salmon Roll (8 pcs)", price: 1100, cost: 114.0, bonus: 100, ing: "Salmon 20g, Surimi 10g, Avokado 5g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 4, name: "California Maki (8 pcs)", price: 1050, cost: 104.0, bonus: 100, ing: "Surimi 10g, Tobiko 2g, Avokado 5g, Kastravec 5g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 5, name: "City Art Special Roll (8 pcs)", price: 1150, cost: 135.5, bonus: 100, ing: "Ton 10g, Salmon 10g, Surimi 10g, Tobiko 2g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 6, name: "Dragon Roll (8 pcs)", price: 1150, cost: 141.0, bonus: 100, ing: "Karkalec 2 cop\'eb (~65g), Avokado 5g, Teriyaki" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 7, name: "Cherry Blossom Roll (8 pcs)", price: 1150, cost: 137.0, bonus: 100, ing: "Ton 10g, Salmon 10g, Surimi 10g, Spicy Mayo" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 8, name: "Tuna Spicy Roll (8 pcs)", price: 1100, cost: 123.0, bonus: 100, ing: "Ton 15g, Tobiko 2g, Kastravec 5g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 9, name: "Red Tiger Roll (8 pcs)", price: 1150, cost: 145.5, bonus: 100, ing: "Karkalec 2 cop\'eb (~65g), Tobiko 2g, Avokado 5g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 10, name: "Volcano Roll (8 pcs)", price: 1100, cost: 127.0, bonus: 100, ing: "Surimi 20g, Filadelfia 5g, Tobiko 2g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 11, name: "Lava Roll (8 pcs)", price: 1100, cost: 113.0, bonus: 100, ing: "Avokado 20g, Filadelfia 5g, Teriyaki 5g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 12, name: "Shrimp Tempura Roll (8 pcs)", price: 1200, cost: 154.0, bonus: 100, ing: "Karkalec 2 cop\'eb, Avokado 20g, Filadelfia 5g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 13, name: "Twin Roll (8 pcs)", price: 1200, cost: 185.0, bonus: 100, ing: "Karkalec 4 cop\'eb (~130g), Susam 2g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 14, name: "Vegan Roll (8 pcs)", price: 1050, cost: 90.0, bonus: 100, ing: "Avokado 10g, Lak\'ebr e Kuqe 10g, Karrota 10g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 15, name: "Spicy Salmon Roll (8 pcs)", price: 1100, cost: 104.5, bonus: 100, ing: "Salmon Tartar 15g, Avokado 5g" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 16, name: "Tuna Sashimi (5 pcs)", price: 800, cost: 170.0, bonus: 100, ing: "~100g Fileto Toni" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 17, name: "Salmon Sashimi (5 pcs)", price: 800, cost: 105.0, bonus: 100, ing: "~100g Salmon" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 18, name: "Tuna Nigiri (4 pcs)", price: 650, cost: 120.0, bonus: 100, ing: "~60g Fileto Toni + Oriz" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ nr: 19, name: "Salmon Nigiri (4 pcs)", price: 650, cost: 81.0, bonus: 100, ing: "~60g Salmon + Oriz" \}
+\fs32 \strokec2 \
+
+\fs52 \strokec2 ];\
+const DEFAULT_SUPPLIERS = [
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Sea Fish Shpk", sec: "SUSHI", prod: "Salmon i Fresk\'ebt (KG)", price: 1050, base: "1.05 L/g", note: "Rritur nga 1,000 L" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Sea Fish Shpk", sec: "SUSHI", prod: "Fileto Toni (KG)", price: 1700, base: "1.70 L/g", note: "\'c7mim i q\'ebndruesh\'ebm" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Sea Fish Shpk", sec: "SUSHI", prod: "Karkalec 20-30 (KG)", price: 750, base: "0.75 L/g", note: "~25\'9630 L / cop\'eb" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Furnitori i Sushit", sec: "SUSHI", prod: "Oriz Japonez Gold 20 kg", price: 260, base: "0.26 L/g", note: "5,200 L thes 20 kg" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Furnitori i Sushit", sec: "SUSHI", prod: "Alga Sushi Nori (50 fl)", price: 1350, base: "27.0 L/fl", note: "13.50 L / gjysm\'eb flet\'eb" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Furnitori i Sushit", sec: "SUSHI", prod: "Tobiko 500 gr", price: 2590, base: "5.18 L/g", note: "5,180 L/kg" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N.N SHPK 24", sec: "SUSHI", prod: "Kewpie Mayo 450 gr", price: 680, base: "1.51 L/g", note: "1,511 L/kg" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N.N SHPK 24", sec: "SUSHI", prod: "Kikkoman Teriyaki 975 ml", price: 1180, base: "1.21 L/ml", note: "Fatura 23.11" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N.N SHPK 24", sec: "SUSHI", prod: "Surimi Sticks 500 gr", price: 360, base: "0.72 L/g", note: "720 L/kg" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N.N SHPK 24", sec: "KUZHIN\'cb", prod: "Chili Sriracha 834 gr", price: 780, base: "0.94 L/g", note: "Fatura 23.11" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N.N SHPK 24", sec: "KUZHIN\'cb", prod: "Tabasco 350 ml", price: 1200, base: "3.43 L/ml", note: "Fatura 23.11" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N.N SHPK 24", sec: "KUZHIN\'cb", prod: "Fistik Jeshil 1 kg", price: 4450, base: "4.45 L/g", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N.N SHPK 24", sec: "KUZHIN\'cb", prod: "Gorditas Soft Tacos (8)", price: 220, base: "27.5 L/cop\'eb", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Prestigj Alb", sec: "KUZHIN\'cb", prod: "Filadelfia 1650 gr", price: 2200, base: "1.33 L/g", note: "1,333 L/kg (ulur)" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Prestigj Alb", sec: "KUZHIN\'cb", prod: "Pana Hopla 1 L", price: 420, base: "0.42 L/ml", note: "Ulur nga 470 L" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Prestigj Alb", sec: "KUZHIN\'cb", prod: "Vaj Palme 18 L", price: 4000, base: "0.22 L/ml", note: "222.22 L/L" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Prestigj Alb", sec: "KUZHIN\'cb", prod: "Vaj Crystal 5 L", price: 920, base: "0.184 L/ml", note: "184 L/L" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Prestigj Alb", sec: "KUZHIN\'cb", prod: "Crema Tartufata 520 gr", price: 900, base: "1.73 L/g", note: "1,731 L/kg" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Prestigj Alb", sec: "KUZHIN\'cb", prod: "Barilla Pasta 500g", price: 100, base: "0.20 L/g", note: "200 L/kg" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Initaly Risto", sec: "KUZHIN\'cb", prod: "Mozzarella Julienne 2.5kg", price: 770, base: "0.77 L/g", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Initaly Risto", sec: "KUZHIN\'cb", prod: "Guanciale (KG)", price: 1430, base: "1.43 L/g", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Initaly Risto", sec: "KUZHIN\'cb", prod: "Rikota Lope 500 gr", price: 830, base: "0.83 L/g", note: "415 L / kuti" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "La Puglia", sec: "KUZHIN\'cb", prod: "Maionese Heinz 5 kg", price: 1800, base: "0.36 L/g", note: "360 L/kg" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N M", sec: "KUZHIN\'cb", prod: "Pecorino Romano DOP", price: 2600, base: "2.60 L/g", note: "Ulur nga 2,700 L" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N M", sec: "KUZHIN\'cb", prod: "Proshut\'eb Crudo 1/4", price: 1500, base: "1.50 L/g", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "N M", sec: "KUZHIN\'cb", prod: "Vaj Tartufi 0.25 L", price: 740, base: "2.96 L/ml", note: "2,960 L/L" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Porosi Mishi", sec: "KUZHIN\'cb", prod: "Brinj\'eb Vi\'e7i (KG)", price: 1100, base: "1.10 L/g", note: "Fatura 24.11" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Porosi Mishi", sec: "KUZHIN\'cb", prod: "Rosto Vi\'e7i (KG)", price: 1400, base: "1.40 L/g", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Porosi Mishi", sec: "KUZHIN\'cb", prod: "Mish i Grir\'eb Vi\'e7i (KG)", price: 900, base: "0.90 L/g", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Alpol Food", sec: "KUZHIN\'cb", prod: "Fileto Pule (KG)", price: 570, base: "0.57 L/g", note: "550\'96570 L/kg" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Royal Shpk", sec: "KUZHIN\'cb", prod: "Patate McCain (KG)", price: 270, base: "0.27 L/g", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Pasta Livia", sec: "KUZHIN\'cb", prod: "Pinsa 250 gr", price: 135, base: "135 L/cop\'eb", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Beata Shpk", sec: "KUZHIN\'cb", prod: "Vez\'eb L (Kok\'ebrr)", price: 20, base: "20 L/cop\'eb", note: "7,200 L / 360 cop\'eb" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Masabi", sec: "KUZHIN\'cb", prod: "Avokado Bio (KG)", price: 625, base: "0.625 L/g", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Masabi", sec: "KUZHIN\'cb", prod: "Rukola 1 kg", price: 550, base: "0.55 L/g", note: "M\'eb lir\'eb se qeset" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Caffe Pascucci", sec: "BARI", prod: "Kafe Pascucci WM T3", price: 2500, base: "20 L/ekspres", note: "8g / kafe" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "B.B.D. SHPK", sec: "BARI", prod: "Qum\'ebsht Mlekovita 1 L", price: 135, base: "0.135 L/ml", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "T.E Distribution", sec: "BARI", prod: "Beluga Noble Vodka 0.7L", price: 3700, base: "5.29 L/ml", note: "500 L m\'eb lir\'eb!" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "T.E Distribution", sec: "BARI", prod: "Birr\'eb Carlsberg Fu\'e7i 30L", price: 8600, base: "95 L/got\'eb", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Premium Distr.", sec: "BARI", prod: "Birr\'eb Estrella Galicia 30L", price: 7500, base: "125 L/L", note: "3,750 L/fu\'e7i me 1+1" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "THG", sec: "BARI", prod: "Beefeater Gin 1 L (-20%)", price: 1400, base: "1.40 L/ml", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "THG", sec: "BARI", prod: "Absolut Vodka 1 L (-20%)", price: 1440, base: "1.44 L/ml", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Harmony Drink", sec: "BARI", prod: "Bacardi Carta Blanca 1 L", price: 1350, base: "1.35 L/ml", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Harmony Drink", sec: "BARI", prod: "Jack Daniel's / Amaro Capo", price: 2000, base: "2.00 L/ml", note: "" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Eurolab", sec: "BARI", prod: "Disaronno 1 L", price: 1580, base: "1.58 L/ml", note: "620 L m\'eb lir\'eb!" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Worldwine", sec: "BARI", prod: "Ver\'ebra Rocca (Shishe)", price: 500, base: "100 L/got\'eb", note: "150ml / got\'eb" \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sup: "Worldwine", sec: "BARI", prod: "Prosecco Extra Dry 0.75L", price: 700, base: "116.7 L/got\'eb", note: "" \}
+\fs32 \strokec2 \
+
+\fs52 \strokec2 ];\
+const DEFAULT_INVENTORY = [
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "SUSHI", name: "Salmon i Fresk\'ebt (kg)", ref: 1050, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "SUSHI", name: "Fileto Toni (kg)", ref: 1700, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "SUSHI", name: "Karkalec 20-30 (kg)", ref: 750, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "SUSHI", name: "Avokado Bio (kg)", ref: 625, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "SUSHI", name: "Filadelfia 1.65kg (kuti)", ref: 2200, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "SUSHI", name: "Tobiko 500g (kuti)", ref: 2590, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "SUSHI", name: "Oriz Japonez (kg)", ref: 260, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Brinj\'eb Vi\'e7i (kg)", ref: 1100, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Rosto Vi\'e7i (kg)", ref: 1400, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Fileto Pule (kg)", ref: 570, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Mish i Grir\'eb Vi\'e7i (kg)", ref: 900, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Shpatull Gici (kg)", ref: 400, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Guanciale (kg)", ref: 1430, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Proshut\'eb Crudo (kg)", ref: 1500, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Mozzarella Julienne (kg)", ref: 760, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Pecorino Romano (kg)", ref: 2600, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Djath\'eb Lope Kova (kg)", ref: 640, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Gjalp\'eb 250g (cop\'eb)", ref: 275, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Pinsa 250g (cop\'eb)", ref: 135, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "KUZHIN\'cb", name: "Patate McCain (kg)", ref: 270, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "BARI", name: "Kafe Pascucci (kg)", ref: 2500, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "BARI", name: "Qum\'ebsht Mlekovita 1L", ref: 135, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "BARI", name: "Birr\'eb Estrella 30L (fu\'e7i)", ref: 3750, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "BARI", name: "Birr\'eb Carlsberg 30L (fu\'e7i)", ref: 8600, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "BARI", name: "Beefeater / Absolut (sh)", ref: 1420, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "BARI", name: "Ver\'ebra Rocca (shishe)", ref: 500, sb: 0, phys: 0, pos: 0 \},
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \{ sec: "BARI", name: "Prosecco Extra Dry (sh)", ref: 700, sb: 0, phys: 0, pos: 0 \}
+\fs32 \strokec2 \
+
+\fs52 \strokec2 ];\
+let kuzhinaData = JSON.parse(localStorage.getItem('ca_kuzhina')) || JSON.parse(JSON.stringify(DEFAULT_KUZHINA));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 let invData = JSON.parse(localStorage.getItem('ca_inv')) || JSON.parse(JSON.stringify(DEFAULT_INVENTORY));\
+function switchTab(id, btn) \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById(id).classList.add('active');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 btn.classList.add('active');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function renderSummary() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('summary-body').innerHTML = DEFAULT_SUMMARY.map(r => `\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 $\{r.cat\}
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs52 \cf0 \strokec2 $\{r.val\}$\{r.st\}$\{r.det\}\
+`).join('');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function renderKuzhina() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const q = document.getElementById('search-kuzhina').value.toLowerCase();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const f = document.getElementById('filter-kuzhina').value;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 let totalFC = 0, highCount = 0;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 kuzhinaData.forEach(item => \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const fc = (item.cost / item.price) * 100;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 totalFC += fc;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if (fc > 35) highCount++;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \});
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('kpi-avg-fc').innerText = (totalFC / kuzhinaData.length).toFixed(1) + '%';
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('kpi-high-fc').innerText = 
+\f5\fs48 \strokec2 $\{highCount\} pjata >35%
+\f0\fs52 \strokec2 ;\
+const filtered = kuzhinaData.filter(item => \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const fc = (item.cost / item.price) * 100;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if (!item.name.toLowerCase().includes(q)) return false;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if (f === 'high') return fc > 35;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if (f === 'border') return fc >= 30 && fc <= 35;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if (f === 'good') return fc < 30;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 return true;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \});\
+document.getElementById('kuzhina-body').innerHTML = filtered.map(item => \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const idx = kuzhinaData.indexOf(item);
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const fc = (item.cost / item.price) * 100;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const profit = item.price - item.cost;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const badgeClass = fc > 35 ? 'b-red' : (fc >= 30 ? 'b-yellow' : 'b-green');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 return `\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 $\{item.name\}
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs52 \cf0 \strokec2 $\{item.cost.toFixed(0)\} L$\{fc.toFixed(1)\}%$\{profit.toFixed(0)\} L$\{item.rec\} L$\{item.note\}\
+`;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}).join('');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function updatePrice(idx, val) \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const p = parseFloat(val);
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if (p > 0) \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 kuzhinaData[idx].price = p;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 localStorage.setItem('ca_kuzhina', JSON.stringify(kuzhinaData));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderKuzhina();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function applyRecommendedPrices() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 kuzhinaData.forEach(item => \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if ((item.cost / item.price) * 100 > 35) item.price = item.rec;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \});
+\fs32 \strokec2 \
+
+\fs52 \strokec2 localStorage.setItem('ca_kuzhina', JSON.stringify(kuzhinaData));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderKuzhina();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function renderSushi() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('sushi-body').innerHTML = DEFAULT_SUSHI.map(s => \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const dir = s.cost + s.bonus;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const pct = (dir / s.price) * 100;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const margin = s.price - dir;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 return `\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 $\{s.name\}
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs52 \cf0 \strokec2 $\{s.price\} L$\{dir.toFixed(0)\} L$\{pct.toFixed(1)\}%$\{margin.toFixed(0)\} L$\{s.ing\}\
+`;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}).join('');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 updateSushiSim();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function updateSushiSim() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const rolls = parseInt(document.getElementById('sim-rolls').value);
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('sim-rolls-val').innerText = rolls;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const rev = rolls * 1110;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const net = rev - (rolls * 222) - 80000;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('sim-rev').innerText = rev.toLocaleString() + ' L';
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const netEl = document.getElementById('sim-net');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 netEl.innerText = net.toLocaleString() + ' L';
+\fs32 \strokec2 \
+
+\fs52 \strokec2 netEl.style.color = net >= 0 ? 'var(--green)' : 'var(--red)';
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function renderSuppliers() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const q = document.getElementById('search-supp').value.toLowerCase();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const sec = document.getElementById('filter-sector').value;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const filtered = DEFAULT_SUPPLIERS.filter(s => \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if (sec !== 'all' && s.sec !== sec) return false;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 return s.prod.toLowerCase().includes(q) || s.sup.toLowerCase().includes(q);
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \});
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('supp-body').innerHTML = filtered.map(s => `\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 $\{s.prod\}
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs52 \cf0 \strokec2 \\(\{s.sup\} <span class="badge b-blue">\\)\{s.sec\}$\{s.price.toLocaleString()\} L$\{s.base\}$\{s.note\}\
+`).join('');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function renderInventory() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 let totalLoss = 0;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('inv-body').innerHTML = invData.map((item, idx) => \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const diff = item.phys - (item.sb - item.pos);
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const loss = diff < 0 ? Math.abs(diff) * item.ref : 0;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 totalLoss += loss;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 return `\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs42 \cf0 \strokec2 \\(\{item.name\}</strong><br><span style="font-size:0.7rem; color:var(--muted);">\\)\{item.ref\} L
+\f4\b0\fs28 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs52 \cf0 \strokec2 $\{diff.toFixed(1)\}$\{loss.toFixed(0)\} L\
+`;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}).join('');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 document.getElementById('total-loss').innerText = totalLoss.toLocaleString() + ' ALL';
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function updateInv(idx, field, val) \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 invData[idx][field] = parseFloat(val) || 0;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 localStorage.setItem('ca_inv', JSON.stringify(invData));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderInventory();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function clearInventory() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 invData.forEach(i => \{ i.sb = 0; i.phys = 0; i.pos = 0; \});
+\fs32 \strokec2 \
+
+\fs52 \strokec2 localStorage.setItem('ca_inv', JSON.stringify(invData));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderInventory();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function exportInventoryCSV() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 let csv = "Sektori,Produkti,Cmimi Ref,Stok+Blerje,Gjendje Fizike,Shitur ne Kase,Diferenca,Humbja (ALL)\\n";
+\fs32 \strokec2 \
+
+\fs52 \strokec2 invData.forEach(i => \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const diff = i.phys - (i.sb - i.pos);
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const loss = diff < 0 ? Math.abs(diff) * i.ref : 0;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 csv += 
+\f5\fs48 \strokec2 "$\{i.sec\}","$\{i.name\}",$\{i.ref\},$\{i.sb\},$\{i.phys\},$\{i.pos\},$\{diff.toFixed(2)\},$\{loss.toFixed(0)\}\\n
+\f0\fs52 \strokec2 ;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \});
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const blob = new Blob([csv], \{ type: 'text/csv;charset=utf-8;' \});
+\fs32 \strokec2 \
+
+\fs52 \strokec2 const a = document.createElement('a');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 a.href = URL.createObjectURL(blob);
+\fs32 \strokec2 \
+
+\fs52 \strokec2 a.download = 
+\f5\fs48 \strokec2 Inventari_CityArt_$\{new Date().toISOString().slice(0,10)\}.csv
+\f0\fs52 \strokec2 ;
+\fs32 \strokec2 \
+
+\fs52 \strokec2 a.click();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+function resetAllData() \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 if(confirm("Rikthe t\'eb gjitha \'e7mimet fillestare?")) \{
+\fs32 \strokec2 \
+
+\fs52 \strokec2 localStorage.removeItem('ca_kuzhina');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 localStorage.removeItem('ca_inv');
+\fs32 \strokec2 \
+
+\fs52 \strokec2 kuzhinaData = JSON.parse(JSON.stringify(DEFAULT_KUZHINA));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 invData = JSON.parse(JSON.stringify(DEFAULT_INVENTORY));
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderKuzhina();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderInventory();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}
+\fs32 \strokec2 \
+
+\fs52 \strokec2 \}\
+renderSummary();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderKuzhina();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderSushi();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderSuppliers();
+\fs32 \strokec2 \
+
+\fs52 \strokec2 renderInventory();
+\fs32 \strokec2 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f5\fs48 \cf0 \strokec2 \
+<FollowUp>\
+Pasi t\'eb shtyp\'ebsh **Copy** mbi k\'ebt\'eb kod dhe t\'eb shtyp\'ebsh **`\uc0\u9654 ` (Play)** te *Shortcuts*, skedari `index.html` n\'eb dosjen **Shortcuts** do t\'eb ket\'eb ikon\'ebn e shfletuesit dhe do t\'eb hapet direkt te [Tiiny.host](https://tiiny.host "tiiny.host")! M\'eb thuaj sapo ta shoh\'ebsh.\
+</FollowUp>\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \strokec2 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
